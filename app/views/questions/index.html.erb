@@ -1,0 +1,25 @@
+<h1>All Questions</h1>
+
+
+<% if current_user %>
+<p>Welcome <%= current_user.name %></p>
+<%= link_to "Ask a Question", new_question_path %>
+<%= link_to "Log Out", logout_path %>
+<% else %>
+<p>You must be logged in to ask a question.</p>
+<%= link_to "Log In with Github", github_login_path %>
+<% end %>
+
+ <div class="field">
+<%= form_tag questions_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+</div>
+
+<%= render @questions  %>
+
+
+<br>

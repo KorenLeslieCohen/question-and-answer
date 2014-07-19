@@ -1,0 +1,25 @@
+<p>NAVIGATION HEADER</p>
+<%= link_to "Home", root_url %>
+
+<% if current_user %>
+<p>Welcome <%= current_user.name %></p>
+<%= link_to "Ask a Question", new_question_path %>
+<%= link_to 'View Questions', questions_path %>
+<%= link_to 'View Topics', tags_path %>
+<%= link_to "Log Out", logout_path %>
+<% else %>
+<%= link_to 'View Questions', questions_path %>
+<%= link_to 'View Topics', tags_path %>
+<%= link_to "Log In with Github", github_login_path %>
+<% end %>
+
+ <div class="field">
+<%= form_tag questions_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+</div>
+
+<p>_____________________</p>

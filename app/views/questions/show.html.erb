@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<!-- <h3>Question Title:</h3> -->
+<h1><%= @question.title %></h1>
+<h4>Question Details:</h4>
+<p><%= @question.content %></p>
+<h4>Posted by:</h4>
+<p><%= @question.user.name %></p>
+<h4>Topics Covered:</h4>
+<p>
+  <% @question.tags.each do |tag| %>
+  <%= tag.name %></br>
+  <% end %>
+</p>
+<h3>Answers:</h3>
+  <% @question.answers.each do |answer| %>
+    <p><strong><%= answer.user.name %></strong> says ...</p> 
+    <p><%= answer.content %> </p>
+  <% end %>
+
+<% if current_user %>
+  <h4>Answer this question!</h4>
+  <%= form_for [@question, Answer.new] do |f| %>
+    <div class="field">
+      <%= f.label :content %><br>
+      <%= f.text_area :content %><br>
+      <%= f.hidden_field :question_id, :value => @question.id %>
+      <%= f.hidden_field :user_id, :value => session["user_id"] %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to "Log in to answer this question!", github_login_path %>
+<% end %>
+
+<% if current_user %>
+  <%= link_to 'Edit', edit_question_path(@question) %> |
+<% end %>
+<%= link_to 'View Questions', questions_path %>

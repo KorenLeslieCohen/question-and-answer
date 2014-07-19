@@ -1,0 +1,8 @@
+<h2><%= link_to question.title, question %></h2> <span>written by: <%#= question.user.name %> </span>
+
+<% if current_user %>
+  <p><%= link_to 'Edit', edit_question_path(question) %></p>
+  <p><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% else %>
+  <p> <%= link_to "Log in to edit or delete this Question", github_login_path %> </p>
+<% end %>
