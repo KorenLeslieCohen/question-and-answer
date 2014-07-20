@@ -9,11 +9,10 @@ h1 {
   color: white;
 }
 
-
-
 h6 {
   color: black;
   font-size: 40px;
+  font-family: 'Fjalla One';
 }
 
 /*.questions-header h1 {
@@ -191,9 +190,23 @@ fieldset {
   max-width: 800px;
 }
 
-.answers h3 {
+/*.answers {
+  background: white;
+}
+
+.question-show {
+  background: red;
+}
+
+.individual-question {
+  background: white;
+}*/
+
+.answers h3,
+h6 {
   padding-top: 20px;
 }
+
 
 
 
