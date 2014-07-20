@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/auth/github/callback', to: 'sessions#create'
 
   get 'logout' => 'sessions#destroy', :as => :logout
+
+
   
   resources :sessions
   resources :users, :only => [:new, :show, :index]
@@ -69,4 +71,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  get "/:page" => "static#show"
 end

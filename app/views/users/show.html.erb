@@ -6,8 +6,10 @@
   <p><%= question.content %></p>
   <% question.answers.each do |answer| %>
     <p><%= answer.content %>, by: <span> <%= answer.user.name %> </span></p>
+
   <% end %>
 <% end %>
+
 
 <%= link_to 'Ask a Question', new_question_path %>
 <%= link_to 'Log Out', logout_path %>

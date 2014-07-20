@@ -1,32 +1,45 @@
-<p id="notice"><%= notice %></p>
+<center>
+<div class="question-show">
 
-<!-- <h3>Question Title:</h3> -->
-<h1><%= @question.title %></h1>
-<h4>Question Details:</h4>
-<p><%= @question.content %></p>
-<h4>Posted by:</h4>
-<p><%= @question.user.name %></p>
-<h4>Topics Covered:</h4>
+<!-- <p id="notice"><%= notice %></p> -->
+<!-- <h3>dfsdf</h3>
+<h>Question:</h5> -->
+<h3>Question</h3>
+<div class="individual-question">
+<!-- <h4><strong>Question:</strong></h4> -->
+<h2><%= @question.title %></h2>
+<h4><strong>Question details:</strong></h4>
+<h5><%= @question.content %></h5>
+<h4><strong>Asked by:</strong></h4> 
+<h5><%= @question.user.name %></h5>
+
+<!-- <h4><strong>Topics Covered:</strong></h4>
 <p>
-  <% @question.tags.each do |tag| %>
-  <%= tag.name %></br>
-  <% end %>
-</p>
-<h3>Answers:</h3>
+  <%# @question.tags.each do |tag| %>
+  <%#= tag.name %></br>
+  <%# end %>
+</p> -->
+</div>
+<div class="answers">
+<h3>Answers</h3>
   <% @question.answers.each do |answer| %>
-    <p><strong><%= answer.user.name %></strong> says ...</p> 
-    <p><%= answer.content %> </p>
+    <p><strong><%= answer.user.name %>:</strong> <%= answer.content %></p>
   <% end %>
+</div>
+
 
 <% if current_user %>
-  <h4>Answer this question!</h4>
+  <h6>Answer this question!</h6>
   <%= form_for [@question, Answer.new] do |f| %>
-    <div class="field">
-      <%= f.label :content %><br>
-      <%= f.text_area :content %><br>
+    <div class="field question-field">
+      <!-- <%#= f.label :content %><br> -->
+      <%= f.text_area :content, class: "form-control col-lg-8", placeholder: "Provide detailed answer here." %><br>
       <%= f.hidden_field :question_id, :value => @question.id %>
       <%= f.hidden_field :user_id, :value => session["user_id"] %>
     </div>
+  <br>
+  <br>
+  <br>
 
     <div class="actions">
       <%= f.submit %>
@@ -37,6 +50,12 @@
 <% end %>
 
 <% if current_user %>
-  <%= link_to 'Edit', edit_question_path(@question) %> |
+  <p><%= link_to 'Edit', edit_question_path(@question) %> | 
+  <%= link_to 'Destroy', @question, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+  <%= link_to 'Back', questions_path %></p>
+<% else %>
+<br><%= link_to 'Back to Questions', questions_path %>
 <% end %>
-<%= link_to 'View Questions', questions_path %>
+
+</div>
+</center>

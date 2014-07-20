@@ -1,25 +1,71 @@
-<p>NAVIGATION HEADER</p>
-<%= link_to "Home", root_url %>
+<nav>
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="/" class="navbar-brand">CodeSource</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
 
-<% if current_user %>
-<p>Welcome <%= current_user.name %></p>
-<%= link_to "Ask a Question", new_question_path %>
-<%= link_to 'View Questions', questions_path %>
-<%= link_to 'View Topics', tags_path %>
-<%= link_to "Log Out", logout_path %>
-<% else %>
-<%= link_to 'View Questions', questions_path %>
-<%= link_to 'View Topics', tags_path %>
-<%= link_to "Log In with Github", github_login_path %>
-<% end %>
+      <li class="active"></li>
+      <!-- <li><%#= link_to "Home", root_url %></li> -->
+      <li><%= link_to "Learn More", "/about" %></li> 
 
- <div class="field">
-<%= form_tag questions_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+      <% if current_user %>
+        <li><%= link_to "Ask a Question", new_question_path %></li>
+        <li><%= link_to 'Browse Questions', questions_path %></li>
+        <li><%= link_to 'Browse by Topic', tags_path %></li>
+      <% else %>
+        <li><%= link_to 'Browse Questions', questions_path %></li>
+        <li><%= link_to 'Browse by Topic', tags_path %></li>
+      <% end %>
+
+<!--       <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li class="dropdown-header">Dropdown header</li>
+          <li><a href="#">Separated link</a></li>
+          <li><a href="#">One more separated link</a></li>
+        </ul>
+      </li> -->
+
+    </ul>
+
+    <!-- <form class="navbar-form navbar-left"> -->
+      <%#= form_tag(questions_path, :method => "get", id: "search-form") do %>
+      <%#= text_field_tag :search, params[:search], class: "form-control col-lg-8", placeholder: "Search Questions" %>
+      <%#= submit_tag "Search" %>
+      <%# end %>
+    <!-- </form> -->
+
+     <ul class="nav navbar-nav navbar-right">
+    <% if current_user %>
+    <li><a>Welcome <%= current_user.name %></a></li>
+      <li><%= link_to "Log Out", logout_path %></li>
+    <% else %>
+      <li><%= link_to "Log in with Github", github_login_path %></li>
+    <% end %>
+
+      <!-- <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </li> -->
+
+    </ul>
+  </div>
 </div>
-
-<p>_____________________</p>
+</nav>

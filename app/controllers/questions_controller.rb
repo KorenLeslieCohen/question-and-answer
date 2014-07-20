@@ -5,7 +5,20 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.all
-    # @question = Question.search(params[:search]) # added for search form
+    # if params[:search] 
+    #   @questions = Question.find(:all, :conditions => ["name LIKE ?", "%#{params[:search]}%"]) 
+    # else
+    #   @questions = Question.all # find(:all) 
+    # end 
+    # @question_search = Question.search(params[:search]) # added for search form
+    if params[:search]
+    @questions = Question.search(params[:search]).order("created_at DESC")
+    else
+    @questions = Question.all.order('created_at DESC')
+    # end
+    # if @questions.blank?
+  # flash.now[:notice] = "No Records Found for this search Result"
+    end
   end
 
   # GET /questions/1
