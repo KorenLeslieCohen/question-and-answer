@@ -100,7 +100,7 @@ h5 {
 
 header {
   height: 100vh;
-  background-image: image_url("nyc.jpg");
+  background-image: image-url("nyc.jpg");
   background-size: cover;
 }
 
