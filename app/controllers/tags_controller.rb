@@ -11,12 +11,21 @@ class TagsController < ApplicationController
   # GET /tags/1.json
   def show
     @tag = Tag.find(params[:id])
+  #   respond_to do |format|
+  #   if @link.blank?
+  #   format.html { redirect_to(tags_path, :notice => "Sorry, we couldn't find tha tag!") }
+  #   else
+  #   format.html { render :action => "index" }
+  #   end
+  # end
   end
 
   # GET /tags/new
   def new
     @tag = Tag.new
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
