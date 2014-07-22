@@ -49,7 +49,6 @@ a:hover {
   transition-duration: .7s;
   padding: 1px;
   border: 2px;
-
   border-color: red;
   border-style: solid;
 }
@@ -101,7 +100,7 @@ h5 {
 
 header {
   height: 100vh;
-  background-image: url("nyc.jpg");
+  background-image: image_url("nyc.jpg");
   background-size: cover;
 }
 
