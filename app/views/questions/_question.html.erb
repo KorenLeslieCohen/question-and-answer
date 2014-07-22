@@ -1,18 +1,16 @@
 <h2><%= link_to question.title, question %></h2> 
-
-<h4><strong>Topics:</strong> <% question.tags.each do |tag| %> 
-  <%= tag.name %>
-  <% end %></h4>
-  <h4>Asked by <%= question.user.name %> </h4>
-
-  </p>
-
-
-
-<% if current_user %>
+<h4><strong>Categories:</strong> <% question.tags.each do |tag| %> 
+  <%= tag.name %><%= "," unless tag == question.tags.last %>
+<% end %></h4>
+<h4>Asked by <img src="<%= question.user.image %>" height="50"> <%= question.user.name %> </h4>
+</p>
+<% if question.user == current_user %>
   <p><%= link_to 'Edit', edit_question_path(question) %> | 
-<%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% elsif current_user %>
 <% else %>
-  <p> <%= link_to "You must log in to edit or delete this question.", github_login_path %> </p>
+  <p> <%= link_to "Log in to answer!", facebook_login_path %> </p>
 <% end %>
- <img src="divider.png" width="200">
+<p>_____________________</p>
+
+

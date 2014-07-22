@@ -1,15 +1,15 @@
 <center>
 <div class="tags-header">
-<h3>Topics</h3>
-<h2>View questions by subject matter.</h2>
-<br>
+  <h3>Categories</h3>
+  <h2>View questions by category.</h2>
+  <br>
 </div>
 <div class="tags-body">
-
+  <p>
     <% @tags.each do |tag| %>
-        <p> <%= link_to tag.name, tag %> </p></br>
+       <%= link_to tag.name, tag %>         
     <% end %>
-    
+  </p>
 </div>
 <br>
 </center>

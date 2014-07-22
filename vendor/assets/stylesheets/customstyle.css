@@ -1,12 +1,18 @@
-@import url('http://fonts.googleapis.com/css?family=Lobster');
+@import url('http://fonts.googleapis.com/css?family=Expletus+Sans');
 @import url('http://fonts.googleapis.com/css?family=Fjalla+One');
+@import url('http://fonts.googleapis.com/css?family=Pompiere');
+
 
 /*home page*/
 h1 {
-  padding-top: 90px;
-  font-family: 'Lobster';
+  padding-top: 100px;
+  font-family: 'Expletus Sans';
   font-size: 100px;
   color: white;
+}
+
+span {
+  color: red;
 }
 
 h6 {
@@ -15,16 +21,12 @@ h6 {
   font-family: 'Fjalla One';
 }
 
-/*.questions-header h1 {
-  color: black;
-  font-family: 'Oxygen';
-}*/
-
 a, 
 a:hover {
   text-decoration: none;
   transition-duration: .5s;
   transition-property: color;
+  color: red;
 }
 
 a:hover {
@@ -32,22 +34,34 @@ a:hover {
 }
 
 .navbar-brand {
-  font-family: 'Lobster';
+  font-family: 'Expletus Sans';
+}
+
+.tags-body {
+  max-width: 900px;
 }
 
 .tags-body a {
-  font-size: 20px;
+  font-size: 40px;
   color: white;
   background-color: black;
-  padding: 10px;
   border-radius: 5px;
-  transition-duration: .5s;
+  transition-duration: .7s;
+  padding: 1px;
+  border: 2px;
+
+  border-color: red;
+  border-style: solid;
 }
 
 .tags-body a:hover {
-  background-color: grey;
-  transition-duration: .5s;
-  transition-property: background-color;
+  background-color: red;
+  color: black;
+  border: 2px;
+  border-style: solid;
+  border-color: black;
+  transition-duration: .7s;
+  transition-property: background-color, border-color, color;
 }
 
 .topic-header a {
@@ -62,7 +76,6 @@ h2 {
 .navbar,
 .navbar-default {
   margin-bottom: -21px;
-  /*padding-bottom: -20px;*/
 }
 
 /*inner page headers*/
@@ -82,13 +95,8 @@ h5 {
   font-size: 20px;
 }
 
-/*.individual-question {
-  margin-top: 70px;
-}*/
-
-.individual-question h2,
-.individual-question h5 {
-  color: #0089FA;
+.individual-question h2 {
+  color: red;
 }
 
 header {
@@ -98,22 +106,42 @@ header {
 }
 
 html, body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-/*body {
-  background: #FFF5F7;
-}*/
+#container {
+  min-height: 97%;
+  position: relative;
+}
 
-/*#index-cover {
-  padding-top: 70px;*/
-  /*background: rgb(254, 227, 210); *//* Fall-back for browsers that don't support rgba */
-  /*background: rgba(254, 227, 210, .7);
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.question-show-header {
+  /*background: rgb(255, 31, 38);*/ /* Fall-back for browsers that don't support rgba */
+  /*background: rgba(255, 31, 38, .4);*/
   border-radius: 5px;
-  width: 90%;
-  height: 300px;*/
-/*}*/
+  /*background: #66A8FF;*/
+  border: 3px solid black;
+  transition-duration: .7s;
+
+}
+.question-show-header:hover {
+  border: 3px solid red;
+  background: #66A8FF;
+  transition-duration: .7s;
+  transition-property: border, background;
+}
+
+.individual-question p {
+  color: white;
+  background: red;
+}
 
 #index-cover p {
   margin-top: 20px;
@@ -123,10 +151,12 @@ html, body {
 .btn, 
 .btn-primary, 
 .btn-lg {
-  margin-top: 20px;
+  margin-top: 25px;
   background-color: white;
+  background: rgb(254, 227, 210); /* Fall-back for browsers that don't support rgba */
+  background: rgba(254, 227, 210, .7);
   border-radius: 5px;
-  border-color: black;
+  border-color: white;
 }
 
 .btn a, 
@@ -146,6 +176,7 @@ html, body {
 .search-form {
   margin-top: 20px;
   width: 300px;
+
 }
 
 .about-header h1,
@@ -157,20 +188,9 @@ html, body {
   color: black;
 }
 
-footer {
-  background: black;
-  margin: 0;
-  padding: 0;
-  bottom: 0;
-}
-
-footer p {
-  color: white;
-}
 
 .search-results h5 {
   color: red;
-  /*font-size: 20px;*/
 }
 
 /*.form-horizontal,
@@ -179,33 +199,73 @@ footer p {
 .control-label,
 .col-lg-10,
 fieldset {
-  width: 400px;
+  border-radius: 5px;
 }*/
 
+.field,
 .question-field {
-  width: 500px;
+  max-width: 890px;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.field label {
+  font-family: 'Pompiere';
+  font-size: 25px;
 }
 
 .question-show {
-  max-width: 800px;
+  max-width: 1000px;
 }
-
-/*.answers {
-  background: white;
-}
-
-.question-show {
-  background: red;
-}
-
-.individual-question {
-  background: white;
-}*/
 
 .answers h3,
 h6 {
   padding-top: 20px;
 }
+
+textarea,
+.field input,
+.checkbox {
+  margin: 5px;
+  padding: 5px;
+}
+
+.actions {
+  font-size: 25px;
+  font-family: 'Fjalla One';
+}
+
+#error_explanation {
+  background: red;
+}
+
+#error_explanation h2 {
+  font-size: 25px;
+  color: white;
+}
+
+#error_explanation li {
+  color: white;
+  list-style-type: none;
+}
+
+.field_with_errors label {
+  color: red;
+  margin: 5px;
+}
+
+.navbar-right img,
+.individual-question img,
+.search-results img,
+.topic-header img {
+  border-radius: 50px;
+}
+
+
+
+
+
+
 
 
 

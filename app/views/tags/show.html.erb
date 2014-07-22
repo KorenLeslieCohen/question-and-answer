@@ -1,16 +1,17 @@
 <!-- <p id="notice"><%= notice %></p> -->
 <center>
 <div class="topic-header">
-<h3> <%= @tag.name %> </h3>
-<h2>The following questions relate to <%= @tag.name.downcase %>.</h2>
-
+  <h3> <%= @tag.name %> </h3>
+  <h2>The following questions relate to <%= @tag.name %>.</h2>
+  <% if @tag.questions.empty? %>
+    <h4>Sorry! There are no questions related to <%= @tag.name %> yet! Be the first!</h4>
+  <% else %>
     <% @tag.questions.each do |question| %>
       <h2><%= link_to question.title, question_path(question) %></h2>
-      <p>Asked by <%= question.user.name %> </p>
-<!-- <img src="divider.png" width="200"> -->
+      <p>Asked by <img src="<%= question.user.image %>" height="50"> <%= question.user.name %> </p>
+      <p>________________</p>
     <% end %>
-
+  <% end %>
 </div>
-
 <%= link_to 'Back', tags_path %>
 </center>

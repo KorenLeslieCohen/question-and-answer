@@ -1,61 +1,60 @@
 <center>
 <div class="question-show">
-
-<!-- <p id="notice"><%= notice %></p> -->
-<!-- <h3>dfsdf</h3>
-<h>Question:</h5> -->
-<h3>Question</h3>
-<div class="individual-question">
-<!-- <h4><strong>Question:</strong></h4> -->
-<h2><%= @question.title %></h2>
-<h4><strong>Question details:</strong></h4>
-<h5><%= @question.content %></h5>
-<h4><strong>Asked by:</strong></h4> 
-<h5><%= @question.user.name %></h5>
-
-<!-- <h4><strong>Topics Covered:</strong></h4>
-<p>
-  <%# @question.tags.each do |tag| %>
-  <%#= tag.name %></br>
-  <%# end %>
-</p> -->
-</div>
-<div class="answers">
-<h3>Answers</h3>
-  <% @question.answers.each do |answer| %>
-    <p><strong><%= answer.user.name %>:</strong> <%= answer.content %></p>
-  <% end %>
-</div>
-
-
-<% if current_user %>
-  <h6>Answer this question!</h6>
-  <%= form_for [@question, Answer.new] do |f| %>
-    <div class="field question-field">
-      <!-- <%#= f.label :content %><br> -->
-      <%= f.text_area :content, class: "form-control col-lg-8", placeholder: "Provide detailed answer here." %><br>
-      <%= f.hidden_field :question_id, :value => @question.id %>
-      <%= f.hidden_field :user_id, :value => session["user_id"] %>
+  <div class="question-show-header">
+    <h3>Question</h3>
+    <div class="individual-question">
+      <p id="notice"><%= notice %></p>
+      <!-- <h4><strong>Question:</strong></h4> -->
+      <h2><%= @question.title %></h2>   
+      <!-- <h4><strong>Question details:</strong></h4> -->
+      <h4><%= @question.content %></h4>
+      <br>
+      <h4><strong>Asked by:</strong></h4> 
+      <img src="<%= @question.user.image %>" height="50">
+      <h4><%= @question.user.name %></h4>
+      <br>
     </div>
+  </div>
   <br>
-  <br>
-  <br>
-
-    <div class="actions">
-      <%= f.submit %>
+  <div class="question-show-header">
+    <div class="answers">
+      <h3>Answers</h3>
+      <% if @question.answers.empty? %>
+        <h4>There are no answers to this question yet. Be the first!<h4>
+      <% else %>
+        <% @question.answers.each do |answer| %>
+          <h4><strong><%= answer.user.name %>:</strong> <%= answer.content %></h4>
+        <% end %>
+      <% end %>
     </div>
-  <% end %>
-<% else %>
-  <%= link_to "Log in to answer this question!", github_login_path %>
-<% end %>
-
-<% if current_user %>
-  <p><%= link_to 'Edit', edit_question_path(@question) %> | 
-  <%= link_to 'Destroy', @question, method: :delete, data: { confirm: 'Are you sure?' } %> | 
-  <%= link_to 'Back', questions_path %></p>
-<% else %>
-<br><%= link_to 'Back to Questions', questions_path %>
-<% end %>
-
-</div>
+      <% if current_user %>
+        <!-- <h5>Answer this question!</h5> -->
+        <%= form_for [@question, Answer.new] do |f| %>
+          <div class="field question-field">
+            <!-- <%#= f.label :content %><br> -->
+            <%= f.text_area :content, class: "form-control col-lg-8", placeholder: "Provide detailed answer here." %><br>
+            <%= f.hidden_field :question_id, :value => @question.id %>
+            <%= f.hidden_field :user_id, :value => session["user_id"] %>
+          </div>
+          <br>
+          <br>
+          <div class="actions">
+            <%= f.submit "Answer Question" %>
+          </div>
+          <% end %>
+          <% else %>
+            <%= link_to "Log in to answer this question!", facebook_login_path %>
+          <% end %>
+          <% if @question.user == current_user %>
+            <p><%= link_to 'Edit Question', edit_question_path(@question) %> | 
+            <%= link_to 'Delete Question', @question, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+            <%= link_to 'Back to Questions', questions_path %></p>
+        <% else %>
+          <br><%= link_to 'Back to Questions', questions_path %>
+        <% end %>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
 </center>

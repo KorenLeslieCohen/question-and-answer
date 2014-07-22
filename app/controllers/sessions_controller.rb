@@ -1,12 +1,10 @@
 class SessionsController < ApplicationController
 
   def create
-    # binding.pry
-    @user = User.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"]) || User.create_with_omniauth(auth_hash)
+    @user = User.from_omniauth(env["omniauth.auth"])
     session[:current_user] = @user
     session[:user_id] = @user.id
-    redirect_to questions_path # root_url #, :notice => "Logged in!"
-  
+    redirect_to questions_path #, :notice => "Logged in!" 
   end
 
   # def new 
@@ -21,7 +19,7 @@ class SessionsController < ApplicationController
   protected
 
     def auth_hash
-      request.env['omniauth.auth'] # || request.referrer || root_path
+      request.env['omniauth.auth'] 
     end
 
 end

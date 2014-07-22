@@ -1,55 +1,24 @@
 <center>
 <div class="questions-header">
-<h3>Questions & Answers</h3>
+  <h3>Questions & Answers</h3>
 </div>
-
-
-<%# if current_user %>
-<!-- <p>Welcome <%#= current_user.name %></p> -->
-<%#= link_to "Ask a Question", new_question_path %>
-<%#= link_to "Log Out", logout_path %>
-<%# else %>
-<!-- <p>You must be logged in to ask a question.</p> -->
-<%#= link_to "Log In with Github", github_login_path %>
-<%# end %>
-
-<!--  <div class="field">
-<%#= form_tag questions_path, :method => 'get' do %>
-  <p>
-    <%#= text_field_tag :search, params[:search] %>
-    <%#= submit_tag "Search", :name => nil %>
-  </p>
-<%# end %>
-</div> -->
-
-
-
-
-
-<center>
-    <form class="search-form">
-      <%= form_tag(questions_path, :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], class: "form-control col-lg-8", placeholder: "Search Questions" %>
-      <%#= submit_tag "Search" %>
-      <% end %>
-    </form>
-
-<br>
-<br>
-<br>
-
+  <center>
+      <form class="search-form">
+        <%= form_tag(questions_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], class: "form-control col-lg-8", placeholder: "Search Questions" %>
+        <%#= submit_tag "Search" %>
+        <% end %>
+      </form>
+  <br>
+  <br>
+  <br>
 <div class="search-results">
-<% if @questions.present? %>
-  <%= render @questions %>
-<% else %>
-  <h5>There are no questions containing the term(s) <%= params[:search] %>.</h5>
-  <p><%= link_to 'Return to Questions', questions_path %></p>
-<% end %>
+  <% if @questions.present? %>
+    <%= render @questions %>
+  <% else %>
+    <h5>There are no questions containing the term(s) <%= params[:search] %>.</h5>
+    <p><%= link_to 'Return to Questions', questions_path %></p>
+  <% end %>
 </div>
-
-
-<%#= render @questions  %>
-
-
 <br>
 </center>

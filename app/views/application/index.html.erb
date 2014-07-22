@@ -1,32 +1,14 @@
 <header>
-<center>
-<div id="index-cover">
-<h1>CodeSource</h1>
-<h2>Helping you help yourself learn to code.</h2>
-
-<%# if current_user %>
-<!-- <p>Logged in as <%#= current_user.name %>.</p> -->
-
-<!-- <button type="button" class="btn btn-primary btn-lg">
-<a>Logged in as <%#= current_user.name %></a>
-</button> -->
-
-<!-- <p>Welcome <%#= current_user.name %></p> -->
-
-<%#= link_to "Ask a Question", new_question_path %>
-<%#= link_to 'View Questions', questions_path %>
-<%#= link_to "Log Out", logout_path %>
-<%# else %>
-<!-- <div id="button">
-<button type="button" class="btn btn-primary btn-lg"> -->
-<%#= link_to 'Log in with Github', github_login_path %>
-<!-- </button>
-</div> -->
-<!-- <p>You must log in through GitHub to ask or answer a question.</p>
-<p>Please visit <a href="http://github.com" target="_blank">GitHub</a> to create an account.</p> -->
-<%# end %>
-
-</div>
-</center>
-
+  <center>
+  <div id="index-cover">
+    <h1>I<span>&hearts;</span>NY</h1>
+    <h2>Your guide to everything cool in New York City.</h2>
+    <br><br>
+    <br><br>
+    <br><br>
+    <% if !current_user %>
+      <a href="/auth/facebook"><img src="facebook.png" width="250"></a>
+    <% end %>
+  </div>
+  </center>
 </header>

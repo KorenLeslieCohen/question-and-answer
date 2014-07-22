@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   root 'application#index'
 
-  get '/auth/github', as: "github_login"
+  # get '/auth/github', as: "github_login"
 
-  get '/auth/github/callback', to: 'sessions#create'
+  get '/auth/facebook', as: "facebook_login"
+
+  # get '/auth/github/callback', to: 'sessions#create'
+
+  # get '/auth/facebook/callback', to: 'sessions#create'
+
+  match 'auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
 
   get 'logout' => 'sessions#destroy', :as => :logout
 
