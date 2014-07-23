@@ -4,14 +4,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    redirect_to root_url
+    # redirect_to root_url
     @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    redirect_to root_url
+    #redirect_to root_url
   end
 
   # GET /users/new

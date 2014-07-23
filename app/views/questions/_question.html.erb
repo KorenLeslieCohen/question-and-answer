@@ -3,6 +3,7 @@
   <%= tag.name %><%= "," unless tag == question.tags.last %>
 <% end %></h4>
 <h4>Asked by <img src="<%= question.user.image %>" height="50"> <%= question.user.name %> </h4>
+<h4><%= question.answers.length %> answers</h4>
 </p>
 <% if question.user == current_user %>
   <p><%= link_to 'Edit', edit_question_path(question) %> | 
