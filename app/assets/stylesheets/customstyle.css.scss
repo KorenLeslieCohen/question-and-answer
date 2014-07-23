@@ -203,9 +203,13 @@ fieldset {
 
 .field,
 .question-field {
-  width: 890px;
+  max-width: 890px;
   font-size: 20px;
   padding: 5px;
+}
+
+.ask-question {
+  max-width: 890px;
 }
 
 .field label {

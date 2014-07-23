@@ -1,4 +1,5 @@
 <center>
+<div class="ask-question">
 <%= form_for(@question) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
@@ -17,9 +18,9 @@
     <%= f.text_area :content, class: "form-control col-lg-8", placeholder: "Explain your question in more detail here." %>
     <%= f.hidden_field :user_id, :value => session["user_id"] %>
   </div>
+ <!--  <br>
   <br>
-  <br>
-  <br>
+  <br> -->
   <div class="field">
     <h4>Please choose the categories to which this question is related:</h4>
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, {:item_wrapper_class => 'checkbox_container'} %><br>
@@ -28,5 +29,6 @@
     <%= f.submit "Ask Question" %>
   </div>
   <% end %>
+</div>
 </center>
 
