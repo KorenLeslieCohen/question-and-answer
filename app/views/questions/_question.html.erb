@@ -3,15 +3,12 @@
   <%= tag.name %><%= "," unless tag == question.tags.last %>
 <% end %></h4>
 <h4>Asked by <img src="<%= question.user.image %>" height="50"> <%= question.user.name %> </h4>
-<h4><%= question.answers.length %> answers</h4>
-</p>
-<% if question.user == current_user %>
-  <p><%= link_to 'Edit', edit_question_path(question) %> | 
-<%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-<% elsif current_user %>
+<% if question.answers.length == 1 %>
+  <h4><%= question.answers.length %> answer</h4>
 <% else %>
-  <p> <%= link_to "Log in to answer!", facebook_login_path %> </p>
+  <h4><%= question.answers.length %> answers</h4>
 <% end %>
-<p>_____________________</p>
+</p>
+<h4>&hearts;</h4>
 
 

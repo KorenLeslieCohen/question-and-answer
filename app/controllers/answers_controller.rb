@@ -25,6 +25,16 @@ class AnswersController < ApplicationController
     end
   end
 
+  # added this
+  def destroy
+    if logged_in? && answer_author?
+      @answer.destroy
+      redirect_to show_question_path
+    else
+      redirect_to show_question_path(@question), :flash => { :error => "You can't delete someone else's answer!" }
+    end
+  end
+
   private
     def set_answer
       @answer = Answer.find(params[:id])
@@ -32,6 +42,11 @@ class AnswersController < ApplicationController
 
     def answer_params
       params.require(:answer).permit(:content, :user_id, :question_id)
+    end
+
+    # added this
+    def answer_author?
+      @answer.user == current_user
     end
 
 end

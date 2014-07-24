@@ -23,7 +23,12 @@
         <h4>There are no answers to this question yet. Be the first!<h4>
       <% else %>
         <% @question.answers.each do |answer| %>
-          <h4><strong><%= answer.user.name %>:</strong> <%= answer.content %></h4>
+          <h4><strong><%= answer.user.name %>:</strong> <%= answer.content %> |
+
+          <% if answer.user == current_user %>
+            <%= link_to 'Delete', @answer, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
+            <% end %>
+
         <% end %>
       <% end %>
     </div>
@@ -50,7 +55,7 @@
             <%= link_to 'Delete Question', @question, method: :delete, data: { confirm: 'Are you sure?' } %> | 
             <%= link_to 'Back to Questions', questions_path %></p>
         <% else %>
-          <br><%= link_to 'Back to Questions', questions_path %>
+          <p><%= link_to 'Back to Questions', questions_path %></p>
         <% end %>
         <br>
         <br>

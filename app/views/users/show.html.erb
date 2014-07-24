@@ -1,13 +1,44 @@
 <!-- <p id="notice"><%= notice %></p> -->
-<h2> <%= @user.name %>  </h2>
-<% @user.questions.each do |question| %>
-  <p><%= question.title %></p>
-  <p><%= question.content %></p>
-  <% question.answers.each do |answer| %>
-    <p><%= answer.content %>, by: <span> <%= answer.user.name %> </span></p>
+<div class="user-show">
+<center>
+  <h3><%= @user.name %></h3>
+  <br>
+  <% if @user.questions.length == 0 %>
+    <h2>Looks like you haven't asked any questions yet!</h2>
+    <h2><span><%= link_to 'I want to ask my first question!', new_question_path %></span></h2>
+    <h6>&hearts;</h6>
+  <% elsif @user.questions.length == 1 %>
+    <h2>You've asked <%= @user.questions.length %> question!</h2>
+    <h2><span><%= link_to 'I want to ask another question!', new_question_path %></span></h2>
+    <br>
+  <% else %>
+    <h2>You've asked <%= @user.questions.length %> questions!</h2>
+    <h2><span><%= link_to 'I want to ask another question!', new_question_path %></span></h2>
+    <br>
   <% end %>
-<% end %>
-<%= link_to 'Ask a Question', new_question_path %>
-<%= link_to 'Log Out', logout_path %>
-<%= link_to 'Back', users_path %>
+  <% @user.questions.each do |question| %>
+    <h2><%=link_to question.title, question %></h2>
+    <h4><%= question.content %></h4> 
+    <% if question.answers.length == 1 %>
+      <h4><%= question.answers.length %> answer</h4>
+    <% elsif question.answers.length > 1 %>
+      <h4><%= question.answers.length %> answers</h4>
+    <% else %>
+      <h4>0 answers</h4>
+    <% end %>
+    <% question.answers.each do |answer| %>
+      <h4><strong><%= answer.user.name %>:</strong> <%= answer.content %></h4>
+    <% end %>
+    <p><%= link_to 'Edit', edit_question_path(question) %> | 
+    <%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <h4>&hearts;</h4>
+  <% end %>
+  <br>
+  <br>
+  <br>
+</center>
+</div>
+
+
+
 

@@ -1,6 +1,7 @@
-<h3>Users</h3>
+<center>
+<h3>Admin Page - Users</h3>
 <% @users.each do |user| %>
   <h2> <%= link_to user.name, user %> </h2>
 <% end %>
 <br>
-<%= link_to 'New User', new_user_path %>
+</center>

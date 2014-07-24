@@ -183,7 +183,8 @@ footer {
 .tags-header h2,
 .topic-header h2,
 .answers h2,
-.edit-header h2 {
+.edit-header h2, 
+.user-show h2 {
   color: black;
 }
 
@@ -260,12 +261,34 @@ textarea,
 .navbar-right img,
 .individual-question img,
 .search-results img,
-.topic-header img {
+.topic-header img,
+.user-show img {
   border-radius: 50px;
+}
+
+.user-show img {
+  border: 3px solid black;
 }
 
 .navbar-right {
   padding-right: 10px;
+}
+
+.user-show h2 span a {
+  color: white;
+  background: black;
+  border-radius: 5px;
+  padding: 5px;
+  border: 2px solid red;
+  transition-duration: .5s;
+}
+
+.user-show h2 span a:hover {
+  color: black;
+  background: red;
+  border: 2px solid black;
+  transition-duration: .5s;
+  transition-property: color, background, border;
 }
 
 

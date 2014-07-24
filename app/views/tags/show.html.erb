@@ -6,12 +6,17 @@
   <% if @tag.questions.empty? %>
     <h4>Sorry! There are no questions related to <%= @tag.name %> yet! Be the first!</h4>
   <% else %>
-    <% @tag.questions.each do |question| %>
+    <% @tag.questions.reverse.each do |question| %>
       <h2><%= link_to question.title, question_path(question) %></h2>
-      <p>Asked by <img src="<%= question.user.image %>" height="50"> <%= question.user.name %> </p>
-      <p>________________</p>
+      <h4>Asked by <img src="<%= question.user.image %>" height="50"> <%= question.user.name %> </h4>
+      <% if question.answers.length == 1 %>
+        <h4><%= question.answers.length %> answer</h4>
+      <% else %>
+        <h4><%= question.answers.length %> answers</h4>
+      <% end %>
+      <h4>&hearts;</h4>  
     <% end %>
   <% end %>
 </div>
-<%= link_to 'Back', tags_path %>
+<p><%= link_to 'Back', tags_path %></p>
 </center>

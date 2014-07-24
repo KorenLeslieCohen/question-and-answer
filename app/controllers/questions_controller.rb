@@ -74,10 +74,6 @@ class QuestionsController < ApplicationController
     else
       redirect_to questions_path(@question), :flash => { :error => "You can't delete someone else's question!" }
     end
-    # respond_to do |format|
-    #   format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
   end
 
   private

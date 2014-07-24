@@ -4,15 +4,24 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    # redirect_to root_url
+    unless current_user == User.find(1)
+      redirect_to root_url
+    end
     @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+
     #redirect_to root_url
+    #binding.pry
+    unless current_user.id == params[:id].to_i
+      redirect_to root_url
+    end
   end
+
+
 
   # GET /users/new
   def new
