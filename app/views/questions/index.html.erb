@@ -15,6 +15,7 @@
 <div class="search-results">
   <% if @questions.present? %>
     <%= render @questions %>
+    <p><%= link_to 'Return to Questions', questions_path %></p>
   <% else %>
     <h5>There are no questions containing the term(s) <%= params[:search] %>.</h5>
     <p><%= link_to 'Return to Questions', questions_path %></p>
