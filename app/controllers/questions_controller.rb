@@ -68,7 +68,7 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
-    if logged_in? && question_author?
+    if (logged_in? && question_author?) || (current_user == User.find(1))
       @question.destroy
       redirect_to questions_path
     else

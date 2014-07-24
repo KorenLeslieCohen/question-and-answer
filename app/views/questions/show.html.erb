@@ -26,8 +26,10 @@
           <h4><strong><%= answer.user.name %>:</strong> <%= answer.content %>
 
           <% if answer.user == current_user %>
-            <!-- | --> <%#= link_to 'Delete', @answer, method: :delete, data: { confirm: 'Are you sure?' } %><!-- </h4> -->
+            <!-- | --> <%#= link_to 'Delete', [answer,@question], method: :delete, data: { confirm: 'Are you sure?' } %><!-- </h4> -->
             <% end %>
+
+
 
         <% end %>
       <% end %>
@@ -50,7 +52,7 @@
           <% else %>
             <%= link_to "Log in to answer this question!", facebook_login_path %>
           <% end %>
-          <% if @question.user == current_user %>
+          <% if (@question.user == current_user) || (current_user == User.find(1)) %>
             <p><%= link_to 'Edit Question', edit_question_path(@question) %> | 
             <%= link_to 'Delete Question', @question, method: :delete, data: { confirm: 'Are you sure?' } %> | 
             <%= link_to 'Back to Questions', questions_path %></p>
