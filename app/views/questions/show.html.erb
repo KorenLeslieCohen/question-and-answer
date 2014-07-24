@@ -45,7 +45,7 @@
         <%= form_for [@question, Answer.new] do |f| %>
           <div class="field question-field">
             <!-- <%#= f.label :content %><br> -->
-            <%= f.text_area :content, class: "form-control col-lg-8", placeholder: "Provide detailed answer here." %><br>
+            <%= f.text_area :content, class: "form-control col-lg-8", placeholder: "Provide detailed answer here." %><!-- <br> -->
             <%= f.hidden_field :question_id, :value => @question.id %>
             <%= f.hidden_field :user_id, :value => session["user_id"] %>
           </div>
@@ -54,7 +54,7 @@
             <%= f.submit "Answer Question" %>
           </div>
           <% end %>
-          <br>
+          <!-- <br> -->
           <% else %>
             <p><%= link_to "Log in to answer this question!", facebook_login_path %><p>
           <% end %>
