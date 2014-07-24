@@ -16,7 +16,13 @@
     </div>
   </div>
   <br>
+  <p><%= link_to "<< BACK", @question.previous %><span>------------------------------</span><%= link_to "NEXT >>", @question.next %></p>
   <div class="question-show-header">
+
+
+
+  
+
     <div class="answers">
       <h3>Answers</h3>
       <% if @question.answers.empty? %>
@@ -43,14 +49,14 @@
             <%= f.hidden_field :question_id, :value => @question.id %>
             <%= f.hidden_field :user_id, :value => session["user_id"] %>
           </div>
-          <br>
-          <br>
+
           <div class="actions">
             <%= f.submit "Answer Question" %>
           </div>
           <% end %>
+          <br>
           <% else %>
-            <%= link_to "Log in to answer this question!", facebook_login_path %>
+            <p><%= link_to "Log in to answer this question!", facebook_login_path %><p>
           <% end %>
           <% if (@question.user == current_user) || (current_user == User.find(1)) %>
             <p><%= link_to 'Edit Question', edit_question_path(@question) %> | 

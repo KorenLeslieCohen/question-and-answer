@@ -11,6 +11,14 @@ class Question < ActiveRecord::Base
     where("title like ?", "%#{search}%") 
     # where("content like ?", "%#{search}%") 
   end
+
+  def previous
+    Question.where(["id > ?", id]).first
+  end
+
+  def next
+    Question.where(["id < ?", id]).last
+  end
   
 
 end

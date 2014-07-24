@@ -291,6 +291,48 @@ textarea,
   transition-property: color, background, border;
 }
 
+.question-show p span {
+  color: white;
+}
+
+/* Smaller Screens - 950px Breakpoint -------> */
+@media screen and (max-width : 950px) {
+
+  .navbar-right li:nth-child(2) {
+    display: none;
+  }
+
+}
+
+/* Smaller Screens - 820px Breakpoint -------> */
+@media screen and (max-width : 820px) {
+
+  .navbar-right li:nth-child(3) {
+    display: none;
+  }
+
+}
+
+/* Smaller Screens - 580px Breakpoint -------> */
+@media screen and (max-width : 580px) {
+
+  .user-show h2 span a {
+    font-size: 30px
+  }
+
+}
+
+/* Smaller Screens - 500px Breakpoint -------> */
+@media screen and (max-width : 500px) {
+
+  footer {
+    margin-top: 70px;
+    padding-top: 70px;
+    height: 100px;
+  }
+
+}
+
 
 
 
