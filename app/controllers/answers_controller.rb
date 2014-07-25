@@ -26,14 +26,14 @@ class AnswersController < ApplicationController
   end
 
   # added this
-  def destroy
-    if logged_in? && answer_author?
-      @answer.destroy
-      redirect_to show_question_path
-    else
-      redirect_to show_question_path(@question), :flash => { :error => "You can't delete someone else's answer!" }
-    end
-  end
+  # def destroy
+  #   if (logged_in? && answer_author?) || (current_user == User.find(1))
+  #     @answer.destroy
+  #     redirect_to show_question_path
+  #   else
+  #     redirect_to show_question_path(@question), :flash => { :error => "You can't delete someone else's answer!" }
+  #   end
+  # end
 
   private
     def set_answer

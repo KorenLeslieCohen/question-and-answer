@@ -32,7 +32,7 @@
           <h4><strong><%= answer.user.name %>:</strong> <%= answer.content %>
 
           <% if answer.user == current_user %>
-            <!-- | --> <%#= link_to 'Delete', [answer,@question], method: :delete, data: { confirm: 'Are you sure?' } %><!-- </h4> -->
+            <!-- | --> <%#= link_to 'Delete', href="/questions/:question_id/answers/:id", method: :delete, data: { confirm: 'Are you sure?' } %><!-- </h4> -->
             <% end %>
 
 
@@ -42,7 +42,7 @@
     </div>
       <% if current_user %>
         <!-- <h5>Answer this question!</h5> -->
-        <%= form_for [@question, Answer.new], remote: true do |f| %>
+        <%= form_for [@question, Answer.new] do |f| %>
           <div class="field question-field">
             <!-- <%#= f.label :content %><br> -->
             <%= f.text_area :content, class: "form-control col-lg-8", placeholder: "Provide detailed answer here." %><!-- <br> -->
