@@ -8,8 +8,8 @@ class Question < ActiveRecord::Base
 
   def self.search(search)
     # where(:title, query) -> This would return an exact match of the query
-    Question.where("title ILIKE ?", "%#{search.capitalize}%") 
-    # where("content like ?", "%#{search}%") 
+    Question.where("title ILIKE ?", "%#{search.capitalize}%")
+    # Question.where("content LIKE ?", "%#{search}%") 
 
 
   end

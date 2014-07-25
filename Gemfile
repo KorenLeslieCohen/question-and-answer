@@ -41,15 +41,14 @@ gem 'spring',        group: :development
 
 gem 'bcrypt', '~> 3.1.2'
 
+# login
 gem 'figaro'
-
 gem 'omniauth'
-
 gem 'omniauth-github'
-
 gem 'omniauth-facebook'
-
 gem 'koala'
+
+gem 'yelp'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
