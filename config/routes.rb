@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :tags, :only => [:show, :index]
   
   resources :questions do 
-    resources :answers, :only => [:new, :create]
+    resources :answers, :only => [:new, :create, :destroy] # ADDED DESTROY
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

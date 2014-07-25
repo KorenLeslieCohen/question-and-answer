@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  # before_action :set_answer, only: [:show, :destroy]
 
   def new
     # @answer = Answer.new
@@ -25,15 +26,21 @@ class AnswersController < ApplicationController
     end
   end
 
-  # added this
-  # def destroy
-  #   if (logged_in? && answer_author?) || (current_user == User.find(1))
-  #     @answer.destroy
-  #     redirect_to show_question_path
-  #   else
-  #     redirect_to show_question_path(@question), :flash => { :error => "You can't delete someone else's answer!" }
-  #   end
-  # end
+  # THIS DOESN'T SEEM TO BE WORKING
+  def destroy
+
+    # @answer = Answer.find(params[:id])
+    # binding.pry
+    @answer = Answer.find(params[:id])
+    # @answer = @question.answer.find(params[:id])
+    #@answer.destroy
+    if (logged_in? && answer_author?) || (current_user == User.find(1))
+      @answer.destroy
+      redirect_to @answer.question, notice: 'Your answer has been deleted!' 
+    else
+      redirect_to show_question_path(@question), :flash => { :error => "You can't delete someone else's answer!" }
+    end
+  end
 
   private
     def set_answer

@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
   belongs_to :user
-  has_many :answers, :dependent => :destroy # what does this do?
+  has_many :answers, :dependent => :destroy # destroys associated answers when question destroyed
   has_many :question_tags
   has_many :tags, through: :question_tags
   accepts_nested_attributes_for :tags
@@ -10,8 +10,6 @@ class Question < ActiveRecord::Base
     # where(:title, query) -> This would return an exact match of the query
     Question.where("title ILIKE ?", "%#{search.capitalize}%")
     # Question.where("content LIKE ?", "%#{search}%") 
-
-
   end
 
   def previous

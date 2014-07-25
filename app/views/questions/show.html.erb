@@ -31,8 +31,9 @@
         <% @question.answers.each do |answer| %>
           <h4><strong><%= answer.user.name %>:</strong> <%= answer.content %>
 
+<!-- ATTEMPTED DELETE LINK FOR ANSWERS -->
           <% if answer.user == current_user %>
-            <!-- | --> <%#= link_to 'Delete', href="/questions/:question_id/answers/:id", method: :delete, data: { confirm: 'Are you sure?' } %><!-- </h4> -->
+            | <%= link_to 'Delete', [@question, answer], method: :delete, data: { confirm: 'Are you sure?' } %></h4>
             <% end %>
 
 
