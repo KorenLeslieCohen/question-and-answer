@@ -2,7 +2,6 @@ class AnswersController < ApplicationController
   # before_action :set_answer, only: [:show, :destroy]
 
   def new
-    # @answer = Answer.new
     if logged_in?
       @answer = Answer.new # this was original - the method was added
     else
@@ -26,14 +25,8 @@ class AnswersController < ApplicationController
     end
   end
 
-  # THIS DOESN'T SEEM TO BE WORKING
   def destroy
-
-    # @answer = Answer.find(params[:id])
-    # binding.pry
     @answer = Answer.find(params[:id])
-    # @answer = @question.answer.find(params[:id])
-    #@answer.destroy
     if (logged_in? && answer_author?) || (current_user == User.find(1))
       @answer.destroy
       redirect_to @answer.question, notice: 'Your answer has been deleted!' 
@@ -51,7 +44,6 @@ class AnswersController < ApplicationController
       params.require(:answer).permit(:content, :user_id, :question_id)
     end
 
-    # added this
     def answer_author?
       @answer.user == current_user
     end

@@ -4,9 +4,7 @@
     <h3>Question</h3>
     <div class="individual-question">
       <p id="notice"><%= notice %></p>
-      <!-- <h4><strong>Question:</strong></h4> -->
       <h2><%= @question.title %></h2>   
-      <!-- <h4><strong>Question details:</strong></h4> -->
       <h4><%= @question.content %></h4>
       <br>
       <h4><strong>Asked by:</strong></h4> 
@@ -18,11 +16,6 @@
   <br>
   <p><%= link_to "<< BACK", @question.previous %><span>------------------------------</span><%= link_to "NEXT >>", @question.next %></p>
   <div class="question-show-header">
-
-
-
-  
-
     <div class="answers">
       <h3>Answers</h3>
       <% if @question.answers.empty? %>
@@ -30,32 +23,23 @@
       <% else %>
         <% @question.answers.each do |answer| %>
           <h4><strong><%= answer.user.name %>:</strong> <%= answer.content %>
-
-<!-- ATTEMPTED DELETE LINK FOR ANSWERS -->
           <% if (answer.user == current_user) || current_user == User.find(1) %>
             | <%= link_to 'Delete', [@question, answer], method: :delete, data: { confirm: 'Are you sure?' } %></h4>
             <% end %>
-
-
-
         <% end %>
       <% end %>
     </div>
       <% if current_user %>
-        <!-- <h5>Answer this question!</h5> -->
         <%= form_for [@question, Answer.new] do |f| %>
           <div class="field question-field">
-            <!-- <%#= f.label :content %><br> -->
-            <%= f.text_area :content, class: "form-control col-lg-8", placeholder: "Provide detailed answer here." %><!-- <br> -->
+            <%= f.text_area :content, class: "form-control col-lg-8", placeholder: "Provide detailed answer here." %>
             <%= f.hidden_field :question_id, :value => @question.id %>
             <%= f.hidden_field :user_id, :value => session["user_id"] %>
           </div>
-
           <div class="actions">
             <%= f.submit "Answer Question" %>
           </div>
           <% end %>
-          <!-- <br> -->
           <% else %>
             <p><%= link_to "Log in to answer this question!", facebook_login_path %><p>
           <% end %>
