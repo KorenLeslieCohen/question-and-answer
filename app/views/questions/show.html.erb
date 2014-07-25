@@ -32,7 +32,7 @@
           <h4><strong><%= answer.user.name %>:</strong> <%= answer.content %>
 
 <!-- ATTEMPTED DELETE LINK FOR ANSWERS -->
-          <% if answer.user == current_user %>
+          <% if (answer.user == current_user) || current_user == User.find(1) %>
             | <%= link_to 'Delete', [@question, answer], method: :delete, data: { confirm: 'Are you sure?' } %></h4>
             <% end %>
 
