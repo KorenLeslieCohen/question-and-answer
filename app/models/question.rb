@@ -9,7 +9,8 @@ class Question < ActiveRecord::Base
   def self.search(search)
     # where(:title, query) -> This would return an exact match of the query
     Question.where("title ILIKE ?", "%#{search.capitalize}%")
-    Question.where("content ILIKE ?", "%#{search}%") 
+    # Question.where("content ILIKE ?", "%#{search}%") # for some reason when this active,
+    # title stops being searched - why?
   end
 
   def previous
