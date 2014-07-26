@@ -8,12 +8,11 @@
   <%= javascript_include_tag 'customjs' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <%= favicon_link_tag '/favicon.ico' %>
-<!--   <link rel="shortcut icon" href="/favicon.ico" /> -->
 </head>
 <body>
   <div id="container">
-  <%= render 'layouts/header' %>
-  <%= yield %>
+    <%= render 'layouts/header' %>
+    <%= yield %>
   <footer>
     <%= render "layouts/footer" %>
   </footer>

@@ -10,11 +10,8 @@
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-
       <li class="active"></li>
-      <!-- <li><%#= link_to "Home", root_url %></li> -->
       <li><%= link_to "Learn More", "/about" %></li> 
-
       <% if current_user %>
         <li><%= link_to "Ask a Question", new_question_path %></li>
         <li><%= link_to 'Browse Questions', questions_path %></li>
@@ -23,51 +20,16 @@
         <li><%= link_to 'Browse Questions', questions_path %></li>
         <li><%= link_to 'Browse Categories', tags_path %></li>
       <% end %>
-
-<!--       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li class="dropdown-header">Dropdown header</li>
-          <li><a href="#">Separated link</a></li>
-          <li><a href="#">One more separated link</a></li>
-        </ul>
-      </li> -->
-
     </ul>
-
-    <!-- <form class="navbar-form navbar-left"> -->
-      <%#= form_tag(questions_path, :method => "get", id: "search-form") do %>
-      <%#= text_field_tag :search, params[:search], class: "form-control col-lg-8", placeholder: "Search Questions" %>
-      <%#= submit_tag "Search" %>
-      <%# end %>
-    <!-- </form> -->
-
-     <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right">
     <% if current_user %>
-    
-    <li><%= link_to "Dashboard", current_user %></li>
-    <li><a>Hey, <%= current_user.name.split(" ")[0] %>!</a></li>
-    <li><img src="<%= current_user.image %>"></li>
+      <li><%= link_to "Dashboard", current_user %></li>
+      <li><a>Hey, <%= current_user.name.split(" ")[0] %>!</a></li>
+      <li><img src="<%= current_user.image %>"></li>
       <li><%= link_to "Log Out", logout_path %></li>
     <% else %>
       <li><%= link_to "Log in with Facebook", facebook_login_path %></li>
     <% end %>
-
-<!--       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </li> -->
-
     </ul>
   </div>
 </div>

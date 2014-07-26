@@ -5,9 +5,9 @@
     <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
       <ul>
-      <% @question.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @question.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -18,9 +18,6 @@
     <%= f.text_area :content, class: "form-control col-lg-8", placeholder: "Explain your question in more detail here." %>
     <%= f.hidden_field :user_id, :value => session["user_id"] %>
   </div>
- <!--  <br>
-  <br>
-  <br> -->
   <div class="field">
     <h4>Please choose the categories to which this question is related:</h4>
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name, {:item_wrapper_class => 'checkbox_container'} %><br>
