@@ -14,7 +14,7 @@ Ask a question... Get an answer... Go have fun...
 
 ## Authors
 
-FlatironPostcard was created by:
+I&hearts;NY was created by:
 
 Koren Leslie Cohen: <a href="http://twitter.com/korenlc" target="_blank">Twitter</a>, <a href="http://korenlc.com" target="_blank">Blog</a>, <a href="http://linkedin.com/pub/koren-leslie-cohen/26/178/726/" target="_blank">LinkedIn</a><br>
 
