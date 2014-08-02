@@ -56,7 +56,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Congrats, you successfully updated your question!' }
+        format.html { redirect_to @question, notice: 'You successfully updated your question. Cool!' }
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit }

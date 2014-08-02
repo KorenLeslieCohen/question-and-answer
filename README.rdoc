@@ -1,28 +1,23 @@
-== README
+# I heart NY 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I&hearts;NY is an application that allows users to ask questions about New York which will be answered by other users.
 
-Things you may want to cover:
+## Background
 
-* Ruby version
+This Ruby on Rails application utilizing the Facebook API and OmniAuth gem for login. 
 
-* System dependencies
+## Usage
 
-* Configuration
+Users have a personalize dashboard listing the questions they have asked and any answers thereto. While logged in, users can ask and answer questions. If not logged in, users can still browse questions, search for questions and view questions by category.
 
-* Database creation
+Ask a question... Get an answer... Go have fun...
 
-* Database initialization
+## Authors
 
-* How to run the test suite
+FlatironPostcard was created by:
 
-* Services (job queues, cache servers, search engines, etc.)
+Koren Leslie Cohen: <a href="http://twitter.com/korenlc" target="_blank">Twitter</a>, <a href="http://korenlc.com" target="_blank">Blog</a>, <a href="http://linkedin.com/pub/koren-leslie-cohen/26/178/726/" target="_blank">LinkedIn</a><br>
 
-* Deployment instructions
+## License
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Photo Mailer is MIT Licensed. See LICENSE for details.
