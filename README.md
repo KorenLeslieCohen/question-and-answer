@@ -1,10 +1,10 @@
-# I heart NY 
+# I&hearts;NY
 
 I&hearts;NY is an application that allows users to ask questions about New York which will be answered by other users.
 
 ## Background
 
-This Ruby on Rails application utilizing the Facebook API and OmniAuth gem for login. 
+I&hearts;NY is a Ruby on Rails application utilizing the Facebook API and OmniAuth gem for login. 
 
 ## Usage
 
