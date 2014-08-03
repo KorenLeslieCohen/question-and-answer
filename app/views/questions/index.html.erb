@@ -6,7 +6,7 @@
   <center>
       <form class="search-form">
         <%= form_tag(questions_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], class: "form-control col-lg-8", placeholder: "Search Questions" %>
+        <%= text_field_tag :search, params[:search], class: "form-control col-lg-8", id: "autocompete", placeholder: "Search Questions" %>
         <%#= submit_tag "Search" %>
         <% end %>
       </form>
