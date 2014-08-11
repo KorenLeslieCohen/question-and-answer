@@ -20,4 +20,4 @@ Koren Leslie Cohen: <a href="http://twitter.com/korenlc" target="_blank">Twitter
 
 ## License
 
-Photo Mailer is MIT Licensed. See LICENSE for details.
+I&hearts;NY is MIT Licensed. See LICENSE for details.
