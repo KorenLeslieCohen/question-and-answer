@@ -85,12 +85,10 @@ h3 {
 }
 
 h4 {
-  /*padding-top: 20px;*/
   font-size: 20px;
 }
 
 h5 {
-  /*padding-top: 20px;*/
   font-size: 20px;
 }
 
@@ -122,14 +120,11 @@ footer {
 }
 
 .question-show-header {
-  /*background: rgb(255, 31, 38);*/ /* Fall-back for browsers that don't support rgba */
-  /*background: rgba(255, 31, 38, .4);*/
   border-radius: 5px;
-  /*background: #66A8FF;*/
   border: 3px solid black;
   transition-duration: .7s;
-
 }
+
 .question-show-header:hover {
   border: 3px solid red;
   background: #66A8FF;
@@ -192,15 +187,6 @@ footer {
 .search-results h5 {
   color: red;
 }
-
-/*.form-horizontal,
-.form-control,
-.col-lg-2.
-.control-label,
-.col-lg-10,
-fieldset {
-  border-radius: 5px;
-}*/
 
 .field,
 .question-field {
