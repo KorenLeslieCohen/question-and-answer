@@ -1,17 +1,8 @@
 class User < ActiveRecord::Base
+
   has_many :questions
   has_many :answers
 
-  # to add github
-  # def self.create_with_omniauth(auth_hash)
-  #   self.create(
-  #     :provider => auth_hash["provider"], 
-  #     :name => auth_hash["info"]["name"], 
-  #     :uid => auth_hash["uid"]
-  #     )
-  # end 
-
-  # facebook
   def self.from_omniauth(auth_hash)
     where(auth_hash.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth_hash.provider
@@ -25,7 +16,7 @@ class User < ActiveRecord::Base
     end
   end
 
-   def facebook
+  def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
   end 
 

@@ -21,8 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-
-
   # GET /users/new
   def new
     # @user = User.new
@@ -35,8 +33,4 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    # def user_params
-    #   params.require(:user).permit(:name, :provider, :uid)
-    # end
 end

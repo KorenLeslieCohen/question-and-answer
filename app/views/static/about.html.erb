@@ -1,46 +1,20 @@
 <center>
 <div class="about-header">
-<h1>I<span>&hearts;</span>NY</h1>
-<h2>Your guide to everything cool in New York City.</h2>
-<div id="klc">
-<h4>Created by <a href="http://twitter.com/korenlc" target="_blank">Koren Leslie Cohen</a> with special thanks to <a href="http://twitter.com/flatironschool" target="_blank">The Flatiron School</a></h4>
+  <h1>I<span>&hearts;</span>NY</h1>
+  <h2>Your guide to everything cool in New York City.</h2>
+  <div id="klc">
+    <h4>Created by <a href="http://twitter.com/korenlc" target="_blank">Koren Leslie Cohen</a> with special thanks to <a href="http://twitter.com/flatironschool" target="_blank">The Flatiron School</a></h4>
+  </div>
 </div>
-</div>
-<!-- <br> -->
 <div class="about">
-<h4></h4>
-<!-- images to fade in -->
-<div id="images">
-  <%= image_tag("question.png", width: "250")%>
-  <%= image_tag("answer.png", width: "250")%>
-  <%= image_tag("fun.png", width: "250")%>
-</div>
+  <h4></h4>
+  <div id="images">
+    <%= image_tag("question.png", width: "250")%>
+    <%= image_tag("answer.png", width: "250")%>
+    <%= image_tag("fun.png", width: "250")%>
+  </div>
 </div>
 <br>
 <br>
 </center>
 
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-
-<script>
-jQuery(document).ready(function() {
-  // script to type text in header
-  var text = 'Ask a question...  Get an answer...  Go have fun...';
-
-  // text is split up to letters
-  $.each(text.split(''), function(i, letter){
-
-      // add 100*i ms delay to each letter 
-      setTimeout(function(){
-
-          // add the letter to the container
-          $('.about h4').html($('.about h4').html() + letter);
-
-      }, 100*i);
-  });
-});
-
-$("#images > img:first-child").hide().delay(4000).fadeIn(4000);
-$("#images > img:nth-child(2)").hide().delay(4000).fadeIn(5000);
-$("#images > img:nth-child(3)").hide().delay(4000).fadeIn(6000);
-</script>

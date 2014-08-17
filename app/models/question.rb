@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+  
   belongs_to :user
   has_many :answers, :dependent => :destroy # destroys associated answers when question destroyed
   has_many :question_tags
@@ -7,10 +8,7 @@ class Question < ActiveRecord::Base
   validates_presence_of :title, :content
 
   def self.search(search)
-    # where(:title, query) -> This would return an exact match of the query
-    Question.where("title LIKE ?", "%#{search.capitalize}%")
-    # Question.where("content ILIKE ?", "%#{search}%") # for some reason when this active,
-    # title stops being searched - why?
+    Question.where("title ILIKE ?", "%#{search.capitalize}%")
   end
 
   def previous

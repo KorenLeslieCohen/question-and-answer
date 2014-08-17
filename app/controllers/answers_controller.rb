@@ -1,9 +1,9 @@
 class AnswersController < ApplicationController
-  # before_action :set_answer, only: [:show, :destroy]
+  before_action :set_answer, only: [:show, :destroy]
 
   def new
     if logged_in?
-      @answer = Answer.new # this was original - the method was added
+      @answer = Answer.new 
     else
       redirect_to root_url, :flash => { :error => "Please sign in to answer a question!" }
     end
