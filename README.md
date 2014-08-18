@@ -4,6 +4,8 @@ I&hearts;NY is an application that allows users to ask questions about New York 
 
 <a href="http://iheartny.us" target="_blank"><img src="http://www.korenlc.com/wp-content/uploads/2014/06/heartny-1024x570.png"></a>
 
+<a href="http://iheartny.us" target="_blank"><img src="http://www.korenlc.com/wp-content/uploads/2014/06/iheartnyquestions-1024x581.png"></a>
+
 ## Background
 
 I&hearts;NY is a Ruby on Rails application utilizing the Facebook API and OmniAuth gem for login. 
