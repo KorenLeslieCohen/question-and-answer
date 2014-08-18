@@ -1,4 +1,5 @@
-jQuery(document).ready(function () {
+$(document).ready(function(){
+
     // script to type text in header
     var text = 'Ask a question...  Get an answer...  Go have fun...';
 
@@ -17,4 +18,5 @@ jQuery(document).ready(function () {
     $("#images > img:first-child").hide().delay(4000).fadeIn(4000);
     $("#images > img:nth-child(2)").hide().delay(4000).fadeIn(5000);
     $("#images > img:nth-child(3)").hide().delay(4000).fadeIn(6000);
+
 });
